@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/appimage2"
+    tools:context=".MainActivity">
+
+
+    <ImageView
+        android:id="@+id/imagehome_id"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/appimage"
+        tools:ignore="VectorDrawableCompat" />
+
+    <Button
+        android:id="@+id/home_id"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp"
+        android:text="Home"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imagehome_id"
+        android:visibility="invisible"/>
+
+    <Button
+        android:id="@+id/login_id"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Login"
+        app:layout_constraintEnd_toEndOf="@+id/home_id"
+        app:layout_constraintStart_toStartOf="@+id/home_id"
+        app:layout_constraintTop_toBottomOf="@+id/home_id" />
+
+    <Button
+        android:id="@+id/register_id"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Register"
+        app:layout_constraintEnd_toEndOf="@+id/login_id"
+        app:layout_constraintStart_toStartOf="@+id/login_id"
+        app:layout_constraintTop_toBottomOf="@+id/login_id" />
+
+    <TextView
+        android:id="@+id/txtadmin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:layout_marginBottom="30dp"
+        android:fontFamily="casual"
+        android:text="Are you an ADMIN? "
+        android:textColor="@color/authui_inputTextColorDark"
+        android:textSize="16sp"
+        android:textStyle="bold|italic"
+        android:typeface="monospace"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

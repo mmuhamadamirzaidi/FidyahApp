@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "218485530391",
+    "firebase_url": "https://app-fidyah-1.firebaseio.com",
+    "project_id": "app-fidyah-1",
+    "storage_bucket": "app-fidyah-1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218485530391:android:624c3e5158709854",
+        "android_client_info": {
+          "package_name": "com.example.user.fidyahapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218485530391-jt3vjij2k7vophisrk37lmcdj3jb6cse.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.fidyahapp",
+            "certificate_hash": "2f1959cb05759578ae9430a34b2a8eddf3d01f13"
+          }
+        },
+        {
+          "client_id": "218485530391-csal6lt1upric73lus739bce37d0atoj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6Rc_LOCrbmFx1hCumKJzYWkadR1fc7Z4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218485530391-csal6lt1upric73lus739bce37d0atoj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
