@@ -16,6 +16,8 @@ import com.firebase.client.ValueEventListener;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.net.URLEncoder;
+
 public class RegisterActivity extends AppCompatActivity {
 
     DatabaseReference rootRef, userDetails, userNameRef, passRef, userEmailRef, userPhoneRef;
@@ -45,13 +47,27 @@ public class RegisterActivity extends AppCompatActivity {
 
     /*register new staff*/
     private void registerUser(String email, String password, String username, String userPhone) {
-        String id = email;
-        RegisterUser registerUser = new RegisterUser();
-        databaseReference.child(id).child("UserEmail").setValue(email);
-        databaseReference.child(id).child("UserName").setValue(username);
-        databaseReference.child(id).child("UserPassword").setValue(password);
-        databaseReference.child(id).child("UserPhone").setValue(userPhone);
-        Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
+//        String id = email;
+//        RegisterUser registerUser = new RegisterUser();
+//        databaseReference.child(id).child("UserEmail").setValue(email);
+//        databaseReference.child(id).child("UserName").setValue(username);
+//        databaseReference.child(id).child("UserPassword").setValue(password);
+//        databaseReference.child(id).child("UserPhone").setValue(userPhone);
+//        Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
+
+        try{
+            String id = email;
+            id = EncodeString(email);
+            RegisterUser registerUser = new RegisterUser();
+            databaseReference.child(id).child("UserEmail").setValue(EncodeString(email));
+            databaseReference.child(id).child("UserName").setValue(EncodeString(username));
+            databaseReference.child(id).child("UserPassword").setValue(password);
+            databaseReference.child(id).child("UserPhone").setValue(userPhone);
+            Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
+            ClearText();
+            finish();
+            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
+        }catch (Throwable e){e.printStackTrace();}
         ClearText();
     }
 
@@ -61,5 +77,25 @@ public class RegisterActivity extends AppCompatActivity {
         etphoneNo.setText("");
         etpassword.setText("");
         etname.setText("");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        StaticData.isAdmin = false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        super.onBackPressed();
+    }
+
+    public static String EncodeString(String string) {
+        return string.replace(".", ",");
+    }
+
+    public static String DecodeString(String string) {
+        return string.replace(",", ".");
     }
 }

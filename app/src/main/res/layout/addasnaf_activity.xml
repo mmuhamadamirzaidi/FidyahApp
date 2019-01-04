@@ -84,7 +84,6 @@
                 android:layout_weight="1"
                 android:gravity="left"
                 android:hint="Asnaf Name's"
-                android:inputType="text"
                 android:textSize="16sp" />
 
         </LinearLayout>

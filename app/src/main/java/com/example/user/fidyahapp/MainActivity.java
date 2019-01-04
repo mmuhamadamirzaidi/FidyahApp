@@ -42,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.register_id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+                Intent int1= new Intent(MainActivity.this, RegisterActivity.class);
+                int1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(int1);
             }
         });
 
@@ -59,5 +61,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         StaticData.isAdmin = false;
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        super.onBackPressed();
     }
 }

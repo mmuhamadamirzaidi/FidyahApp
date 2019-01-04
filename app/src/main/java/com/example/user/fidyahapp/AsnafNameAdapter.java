@@ -35,7 +35,7 @@ public class AsnafNameAdapter extends RecyclerView.Adapter<AsnafNameAdapter.MyVi
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, final int i) {
-        myViewHolder.asnafName.setText("Asnaf name: " + asnafDetails.get(i).getAsnafName());
+        myViewHolder.asnafName.setText("Asnaf name: " + StaticData.DecodeString(asnafDetails.get(i).getAsnafName()));
         myViewHolder.asnaflat.setText("Asnaf Latitude: " + String.valueOf(asnafDetails.get(i).getLatitude()));
         myViewHolder.asnafLong.setText("Asnaf Longitude: " + String.valueOf(asnafDetails.get(i).getLongitude()));
 
@@ -43,14 +43,13 @@ public class AsnafNameAdapter extends RecyclerView.Adapter<AsnafNameAdapter.MyVi
             myViewHolder.itemList.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    AsnafPageDetails.start(context, asnafDetails.get(i).getAsnafName(), asnafDetails.get(i).getLatitude(), asnafDetails.get(i).getLongitude(), asnafDetails.get(i).getKeyValue());
+                    AsnafPageDetails.start(context, StaticData.DecodeString(asnafDetails.get(i).getAsnafName()), asnafDetails.get(i).getLatitude(), asnafDetails.get(i).getLongitude(), asnafDetails.get(i).getKeyValue());
                 }
             });
         } else {
             myViewHolder.itemList.setOnClickListener(null);
         }
     }
-
 
     @Override
     public int getItemCount() {

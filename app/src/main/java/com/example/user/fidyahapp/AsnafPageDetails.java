@@ -88,4 +88,10 @@ public class AsnafPageDetails extends AppCompatActivity {
             Toast.makeText(this, "Asnaf's info failed to update", Toast.LENGTH_SHORT).show();
         }
     }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        super.onBackPressed();
+    }
 }

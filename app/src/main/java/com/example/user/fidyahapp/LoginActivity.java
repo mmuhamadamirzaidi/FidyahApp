@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-
         /*database reference pointing to root of database*/
         firebaseDatabase = FirebaseDatabase.getInstance();
         if (StaticData.isAdmin) {
@@ -77,9 +76,13 @@ public class LoginActivity extends AppCompatActivity {
                     for (com.firebase.client.DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                         RegisterUser registerUser = dataSnapshot1.getValue(RegisterUser.class);
                         System.out.println(registerUser.getUserName()); //Testing
-                        if (edtUsername.getText().toString().trim().equals(registerUser.getUserName()) && edtPassword.getText().toString().trim().equals(registerUser.getUserPassword())) {
+                        Log.e("chcek", "chek: " + registerUser.getUserName());
+                        if (edtUsername.getText().toString().trim().equals(StaticData.DecodeString(registerUser.getUserName())) && edtPassword.getText().toString().trim().equals(registerUser.getUserPassword())) {
                             finish();
                             StaticData.isAdmin = false;
+                            Intent i = new Intent();
+                            i.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                            startActivity(i);
                             startActivity(new Intent(LoginActivity.this, HomeActivity.class));
                             Toast.makeText(LoginActivity.this, "Success Login...", Toast.LENGTH_SHORT).show();
                         }
@@ -148,4 +151,14 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        super.onBackPressed();
+    }
 }

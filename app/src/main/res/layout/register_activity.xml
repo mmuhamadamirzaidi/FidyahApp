@@ -16,7 +16,6 @@
         android:layout_marginRight="8dp"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
