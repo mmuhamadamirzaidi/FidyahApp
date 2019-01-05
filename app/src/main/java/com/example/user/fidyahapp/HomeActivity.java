@@ -143,6 +143,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     /*load asnaf detail from database*/
     private void getAsnafDetails() {
         asnafDetailsArrayList.clear();
+        asnafDetailsArrayList = new ArrayList<>();
         firebaseRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -217,5 +218,14 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
     @Override
     protected void onResume() {
         super.onResume();
+        try{
+        asnafDetailsArrayList.clear();
+        asnafDetailsArrayList = new ArrayList<>();
+    }catch (Exception e){e.printStackTrace();}}
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
     }
 }

@@ -88,11 +88,19 @@ public class AddAsnaf extends AppCompatActivity {
 
     /*register the new Asnaf*/ /*id here is for branch name*/
     private void registerAsnaf(String name, String lat, String longi) {
-        String id = name;
-        databaseReference.child(id).child("AsnafName").setValue(name);
-        databaseReference.child(id).child("Latitude").setValue(lat);
-        databaseReference.child(id).child("Longitude").setValue(longi);
-        Toast.makeText(this, "New Asnaf's Registered Successful", Toast.LENGTH_SHORT).show();
+//        String id = name;
+//        databaseReference.child(id).child("AsnafName").setValue(name);
+//        databaseReference.child(id).child("Latitude").setValue(lat);
+//        databaseReference.child(id).child("Longitude").setValue(longi);
+//        Toast.makeText(this, "New Asnaf's Registered Successful", Toast.LENGTH_SHORT).show();
+
+        try {
+            String id = EncodeString(name);
+            databaseReference.child(id).child("AsnafName").setValue(EncodeString(name));
+            databaseReference.child(id).child("Latitude").setValue(lat);
+            databaseReference.child(id).child("Longitude").setValue(longi);
+            Toast.makeText(this, "New Asnaf's Registered Successful", Toast.LENGTH_SHORT).show();
+        }catch (Throwable e){e.printStackTrace();}
         ClearText();
     }
 
@@ -137,5 +145,19 @@ public class AddAsnaf extends AppCompatActivity {
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);
         finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        this.finish();
+        super.onBackPressed();
+    }
+
+    public static String EncodeString(String string) {
+        return string.replace(".", ",");
+    }
+
+    public static String DecodeString(String string) {
+        return string.replace(",", ".");
     }
 }

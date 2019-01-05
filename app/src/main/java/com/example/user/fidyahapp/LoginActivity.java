@@ -40,7 +40,6 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_activity);
-
         /*database reference pointing to root of database*/
         firebaseDatabase = FirebaseDatabase.getInstance();
         if (StaticData.isAdmin) {
@@ -76,11 +75,13 @@ public class LoginActivity extends AppCompatActivity {
                 try {
                     for (com.firebase.client.DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
                         RegisterUser registerUser = dataSnapshot1.getValue(RegisterUser.class);
-                        System.out.println(registerUser.getUserName()); //Testing
-                        if (edtUsername.getText().toString().trim().equals(registerUser.getUserName()) && edtPassword.getText().toString().trim().equals(registerUser.getUserPassword())) {
+                        System.out.println(DecodeString(registerUser.getUserName())); //Testing
+                        Log.e("chcek", "chek: " + DecodeString(registerUser.getUserName()));
+                        if (edtUsername.getText().toString().trim().equals(DecodeString(registerUser.getUserName())) && edtPassword.getText().toString().trim().equals(registerUser.getUserPassword())) {
                             finish();
                             StaticData.isAdmin = false;
-                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
+                            Intent i = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(i);
                             Toast.makeText(LoginActivity.this, "Success Login...", Toast.LENGTH_SHORT).show();
                         }
                     }
@@ -103,30 +104,11 @@ public class LoginActivity extends AppCompatActivity {
         firebaseReference.addValueEventListener(new com.firebase.client.ValueEventListener() {
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot dataSnapshot) {
-                /*this one is wrong path because child path is not correct*/
-//                try {
-//                    Log.e("String","Striong:"+ StaticData.isAdmin);
-//                    for (com.firebase.client.DataSnapshot dataSnapshot1 : dataSnapshot.getChildren()) {
-//                        AdminDetails registerUser = dataSnapshot1.getValue(AdminDetails.class);
-//                        System.out.println(registerUser.getAdminUsername()); //Testing
-//                        if (edtUsername.getText().toString().trim().equals(registerUser.getAdminUsername()) && edtPassword.getText().toString().trim().equals(registerUser.getAdminPassword())) {
-//                            finish();
-//                            StaticData.isAdmin = true;
-//                            startActivity(new Intent(LoginActivity.this, HomeActivity.class));
-//                            Toast.makeText(LoginActivity.this, "Success Login...", Toast.LENGTH_SHORT).show();
-//                        }
-//                        Log.e("String","Striong:"+ registerUser.getAdminPassword() + " " + registerUser.getAdminUsername());
-//
-//                    }
-//                } catch (Throwable e) {
-//                    e.printStackTrace();
-//                }
-
                 try {
                     String adminUsername = dataSnapshot.child("adminUsername").getValue(String.class);
                     String adminPassword = dataSnapshot.child("adminPassword").getValue(String.class);
                     Log.e("String", "Striong:" + adminPassword + " " + adminUsername);
-                    if (edtUsername.getText().toString().trim().equals(adminUsername) && edtPassword.getText().toString().trim().equals(adminPassword)) {
+                    if (edtUsername.getText().toString().trim().equals(DecodeString(adminUsername)) && edtPassword.getText().toString().trim().equals(adminPassword)) {
                         finish();
                         StaticData.isAdmin = true;
                         startActivity(new Intent(LoginActivity.this, HomeActivity.class));
@@ -148,4 +130,22 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    public static String EncodeString(String string) {
+        return string.replace(".", ",");
+    }
+
+    public static String DecodeString(String string) {
+        return string.replace(",", ".");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        this.finish();
+    }
 }
