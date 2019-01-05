@@ -65,10 +65,7 @@ public class RegisterActivity extends AppCompatActivity {
             databaseReference.child(id).child("UserPhone").setValue(userPhone);
             Toast.makeText(this, "Register Successful", Toast.LENGTH_SHORT).show();
             ClearText();
-            finish();
-            startActivity(new Intent(RegisterActivity.this, LoginActivity.class));
         }catch (Throwable e){e.printStackTrace();}
-        ClearText();
     }
 
     /*set text to "" after register*/

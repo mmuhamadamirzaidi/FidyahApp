@@ -225,7 +225,7 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     public void onBackPressed() {
-        this.finish();
         super.onBackPressed();
+        this.finish();
     }
 }

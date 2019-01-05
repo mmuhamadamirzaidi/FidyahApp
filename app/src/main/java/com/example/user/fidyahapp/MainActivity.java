@@ -28,22 +28,23 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.home_id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, HomeActivity.class));
+                Intent int1= new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(int1);
             }
         });
 
         findViewById(R.id.login_id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
-            }
+                StaticData.isAdmin = false;
+                Intent int1= new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(int1);            }
         });
 
         findViewById(R.id.register_id).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent int1= new Intent(MainActivity.this, RegisterActivity.class);
-                int1.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(int1);
             }
         });
@@ -52,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 StaticData.isAdmin = true;
-                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                Intent int1= new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(int1);
             }
         });
     }
@@ -65,7 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        this.finish();
         super.onBackPressed();
+        this.finish();
+
     }
 }
