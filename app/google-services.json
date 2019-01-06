@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "218485530391-qehcb5btj1v4n07ngafkj3tftud9cb6o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.user.fidyahapp",
+            "certificate_hash": "c24db5dd5a024ac945c6ef31e3e345b3e43669b8"
+          }
+        },
+        {
           "client_id": "218485530391-csal6lt1upric73lus739bce37d0atoj.apps.googleusercontent.com",
           "client_type": 3
         }

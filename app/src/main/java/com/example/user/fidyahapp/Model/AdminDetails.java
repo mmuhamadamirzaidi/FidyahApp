@@ -1,9 +1,11 @@
 package com.example.user.fidyahapp.Model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties
 public class AdminDetails {
 
-    String adminPassword;
-    String adminUsername;
+     String adminPassword;
+     String adminUsername;
 
     public AdminDetails() {
     }
