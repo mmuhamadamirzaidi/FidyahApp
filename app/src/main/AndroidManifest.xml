@@ -8,7 +8,7 @@
 
     <application
         android:name=".Database"
-        android:allowBackup="false"
+        android:allowBackup="true"
         android:icon="@drawable/fidyahapp"
         android:label="@string/app_name"
         android:roundIcon="@drawable/fidyahapp"
@@ -25,7 +25,8 @@
 
         <meta-data
             android:name="com.google.android.maps.v2.API_KEY"
-            android:value="AIzaSyB36rQQ-zleB1xny_VybqMWTMl3lu83_QI"/>
+        android:value="AIzaSyB36rQQ-zleB1xny_VybqMWTMl3lu83_QI"/>
+        <!--android:value="AIzaSyASBhOYOvStm7WHZsuxkXm4d63STOam8b4"/>-->
 
         <activity
             android:name=".LoginActivity"

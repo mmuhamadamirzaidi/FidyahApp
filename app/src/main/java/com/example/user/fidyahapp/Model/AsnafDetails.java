@@ -1,10 +1,12 @@
 package com.example.user.fidyahapp.Model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties
 public class AsnafDetails {
-    String AsnafName;
-    double Latitude;
-    double Longitude;
-    String keyValue;
+     String AsnafName;
+     double Latitude;
+     double Longitude;
+     String keyValue;
 
     public AsnafDetails() {
     }

@@ -1,12 +1,14 @@
 package com.example.user.fidyahapp.Model;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+@JsonIgnoreProperties
 public class RegisterUser {
 
-    String key;
-    String UserEmail;
-    String UserName;
-    String UserPassword;
-    String UserPhone;
+     String key;
+     String UserEmail;
+     String UserName;
+     String UserPassword;
+     String UserPhone;
 
     public RegisterUser() {
     }
@@ -58,4 +60,5 @@ public class RegisterUser {
     public String getUserName() {
         return UserName;
     }
+
 }
