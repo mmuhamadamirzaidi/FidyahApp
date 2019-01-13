@@ -4,11 +4,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties
 public class RegisterUser {
 
-     String key;
-     String UserEmail;
-     String UserName;
-     String UserPassword;
-     String UserPhone;
+     public String key;
+    public String UserEmail;
+    public String UserName;
+    public String UserPassword;
+    public String UserPhone;
 
     public RegisterUser() {
     }
@@ -60,5 +60,6 @@ public class RegisterUser {
     public String getUserName() {
         return UserName;
     }
+    
 
-}
+    }

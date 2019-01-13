@@ -3,10 +3,10 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties
 public class AsnafDetails {
-     String AsnafName;
-     double Latitude;
-     double Longitude;
-     String keyValue;
+     public String AsnafName;
+    public double Latitude;
+    public double Longitude;
+    public String keyValue;
 
     public AsnafDetails() {
     }

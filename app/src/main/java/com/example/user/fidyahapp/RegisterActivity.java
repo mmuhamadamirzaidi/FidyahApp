@@ -35,7 +35,8 @@ public class RegisterActivity extends AppCompatActivity {
         etname = findViewById(R.id.edtName);
         etphoneNo = findViewById(R.id.edtPhone);
 
-        databaseReference = new Firebase(StaticData.FIREBASE_DATABASE_URL + "UserDetails/");
+//        databaseReference = new Firebase(StaticData.FIREBASE_DATABASE_URL + "UserDetails/");
+        databaseReference = new Firebase(StaticData.FIREBASE_DATABASE_URL + "UserDetails");
 
         findViewById(R.id.txtRegister).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,7 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        StaticData.isAdmin = false;
+//        StaticData.isAdmin = false;
     }
 
     @Override

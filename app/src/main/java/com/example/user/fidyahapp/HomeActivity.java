@@ -79,7 +79,8 @@ public class HomeActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseRef = new Firebase(StaticData.FIREBASE_DATABASE_URL + "AsnafDetails");
-        getAsnafDetails();
+        try{
+        getAsnafDetails();}catch (Throwable e){e.printStackTrace();}
     }
 
     /*get user current location*/
