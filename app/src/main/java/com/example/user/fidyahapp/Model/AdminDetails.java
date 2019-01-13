@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties
 public class AdminDetails {
 
-     String adminPassword;
-     String adminUsername;
+    public String adminPassword;
+    public String adminUsername;
 
     public AdminDetails() {
     }
